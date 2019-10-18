@@ -1,0 +1,25 @@
+<!doctype HTML>
+<html>
+  <head>
+    <script src="static/jquery-3.4.1.js"></script>
+    <script>
+    $(document).ready(function() {
+      var total_tasks = {{ total_tasks }};
+
+      for (var i = 0; i < total_tasks; i++) {
+        $('#task_list').append(
+          $('<li>').append(
+            $('<a>').attr('href', '/task/' + i)
+                    .text('Task #' + i)));
+      }
+    });
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>Task List</h1>
+      <ul id="task_list">
+      </ul>
+    </div>
+  </body>
+</html>

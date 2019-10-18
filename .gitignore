@@ -1,0 +1,10 @@
+*.pyc
+*.csv
+*.tsv
+*~
+.DS_Store
+build/*
+dist/*
+node_modules/*
+murkle.egg-info/*
+venv/*
