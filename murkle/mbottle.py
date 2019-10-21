@@ -2,6 +2,7 @@ import csv
 import os.path
 
 import bottle
+from bs4 import BeautifulSoup
 
 
 class MurkleServer(object):
@@ -36,12 +37,16 @@ def index():
 def task(task_id):
     csv_fh = open(MurkleServer.CSV_FILE, 'r', encoding='utf-8')
     reader = csv.DictReader(csv_fh)
-    task_fields = list(reader)[int(task_id)]
-
-    turk_template = open(MurkleServer.HTML_TEMPLATE, 'r', encoding='utf-8').read()
+    tasks = list(reader)
+    task_fields = tasks[int(task_id)]
+    next_task_id = str((int(task_id) + 1) % len(tasks))
 
     templates_path = os.path.join(os.path.dirname(__file__), 'templates')
     template = open(os.path.join(templates_path, 'task_assignment_iframe.html'), 'r', encoding='utf-8').read()
+
+    turk_template = open(MurkleServer.HTML_TEMPLATE, 'r', encoding='utf-8').read()
+    soup = BeautifulSoup(turk_template, 'html.parser')
+    turk_template_has_submit_button = bool(soup.select('input[type=submit]'))
 
     for field in task_fields.keys():
         turk_template = turk_template.replace(
@@ -50,7 +55,15 @@ def task(task_id):
         )
 
     tpl = bottle.SimpleTemplate(template)
-    return tpl.render(turk_template=turk_template)
+    return tpl.render(
+        form_submit_url='/task/' + next_task_id,
+        turk_template_has_submit_button=turk_template_has_submit_button,
+        turk_template=turk_template)
+
+@bottle.route('/task/<next_task_id>', method='post')
+def task_submit(next_task_id):
+    # TODO: Log submitted values
+    bottle.redirect('/task/' + next_task_id)
 
 @bottle.route('/static/<filepath:path>')
 def server_static(filepath):

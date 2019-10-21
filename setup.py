@@ -17,6 +17,7 @@ if __name__ == '__main__':
         tests_require=[],
         install_requires=[
             'bottle',
+            'bs4',
         ],
 
         license="BSD",
