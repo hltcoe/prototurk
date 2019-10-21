@@ -62,7 +62,9 @@ def task(task_id):
 
 @bottle.route('/task/<next_task_id>', method='post')
 def task_submit(next_task_id):
-    # TODO: Log submitted values
+    print('FORM DATA:')
+    for key in bottle.request.forms:
+        print('  %s: %s' % (key, bottle.request.forms[key]))
     bottle.redirect('/task/' + next_task_id)
 
 @bottle.route('/static/<filepath:path>')
