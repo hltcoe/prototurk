@@ -1,4 +1,5 @@
 import csv
+import json
 import os.path
 
 import bottle
@@ -64,7 +65,13 @@ def task(task_id):
 def task_submit(next_task_id):
     print('FORM DATA:')
     for key in bottle.request.forms:
-        print('  %s: %s' % (key, bottle.request.forms[key]))
+        # Try to pretty print as JSON
+        try:
+            json_data = json.loads(bottle.request.forms[key])
+            pretty_json = json.dumps(json_data, sort_keys=True, indent=2, separators=(',', ': '))
+            print('  %s: %s' % (key, pretty_json))
+        except TypeError:
+            print('  %s: %s' % (key, bottle.request.forms[key]))
     bottle.redirect('/task/' + next_task_id)
 
 @bottle.route('/static/<filepath:path>')
