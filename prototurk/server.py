@@ -43,7 +43,7 @@ def task(task_id):
     next_task_id = str((int(task_id) + 1) % len(tasks))
 
     templates_path = os.path.join(os.path.dirname(__file__), 'templates')
-    template = open(os.path.join(templates_path, 'task_assignment_iframe.html'), 'r', encoding='utf-8').read()
+    template = open(os.path.join(templates_path, 'task_assignment.html'), 'r', encoding='utf-8').read()
 
     turk_template = open(ProtoTurkServer.HTML_TEMPLATE, 'r', encoding='utf-8').read()
     soup = BeautifulSoup(turk_template, 'html.parser')
