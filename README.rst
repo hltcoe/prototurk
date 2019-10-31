@@ -18,5 +18,9 @@ ProtoTurk does not save any data to database or disk.  If you need to
 run a Mechanical Turk-style server in your Local Environment, please
 take a loook at Turkle_.
 
+ProtoTurk can be installed using::
+
+    python setup.py install
+
 .. _Bottle: https://www.bottlepy.org
 .. _Turkle: https://github.com/hltcoe/turkle
