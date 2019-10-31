@@ -1,2 +1,2 @@
-recursive-include murkle/static *
-recursive-include murkle/templates *
+recursive-include prototurk/static *
+recursive-include prototurk/templates *

@@ -4,7 +4,7 @@
 import argparse
 import os.path
 
-import murkle
+import prototurk
 
 
 def main():
@@ -17,7 +17,7 @@ def main():
     parser.add_argument('csv_file')
     args = parser.parse_args()
 
-    ms = murkle.MurkleServer(
+    ms = prototurk.ProtoTurkServer(
         args.host,
         args.port,
         os.path.realpath(args.html_file),

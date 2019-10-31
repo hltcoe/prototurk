@@ -6,5 +6,5 @@
 build/*
 dist/*
 node_modules/*
-murkle.egg-info/*
+prototurk.egg-info/*
 venv/*

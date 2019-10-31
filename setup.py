@@ -3,16 +3,16 @@ from setuptools import setup
 
 if __name__ == '__main__':
     setup(
-        name="murkle",
+        name="prototurk",
         version='0.1.0',
         description="",
 
         packages=[
-            'murkle',
+            'prototurk',
         ],
         include_package_data=True,
 
-        scripts=['scripts/murkle-server.py'],
+        scripts=['scripts/prototurk'],
         setup_requires=[],
         tests_require=[],
         install_requires=[

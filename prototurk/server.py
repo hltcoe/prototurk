@@ -6,7 +6,7 @@ import bottle
 from bs4 import BeautifulSoup
 
 
-class MurkleServer(object):
+class ProtoTurkServer(object):
     # DANGER WILL ROBINSON!  We are using class variables
     # to store values accessed by the Bottle route functions
     # below.
@@ -16,8 +16,8 @@ class MurkleServer(object):
     def __init__(self, host, port, html_template, csv_file):
         self.host = host
         self.port = port
-        MurkleServer.HTML_TEMPLATE = html_template
-        MurkleServer.CSV_FILE = csv_file
+        ProtoTurkServer.HTML_TEMPLATE = html_template
+        ProtoTurkServer.CSV_FILE = csv_file
 
     def serve(self):
         bottle.run(host=self.host, port=self.port)
@@ -25,7 +25,7 @@ class MurkleServer(object):
 
 @bottle.get('/')
 def index():
-    csv_fh = open(MurkleServer.CSV_FILE, 'r', encoding='utf-8')
+    csv_fh = open(ProtoTurkServer.CSV_FILE, 'r', encoding='utf-8')
     reader = csv.DictReader(csv_fh)
     total_tasks = len(list(reader))
     
@@ -36,7 +36,7 @@ def index():
 
 @bottle.route('/task/<task_id>')
 def task(task_id):
-    csv_fh = open(MurkleServer.CSV_FILE, 'r', encoding='utf-8')
+    csv_fh = open(ProtoTurkServer.CSV_FILE, 'r', encoding='utf-8')
     reader = csv.DictReader(csv_fh)
     tasks = list(reader)
     task_fields = tasks[int(task_id)]
@@ -45,7 +45,7 @@ def task(task_id):
     templates_path = os.path.join(os.path.dirname(__file__), 'templates')
     template = open(os.path.join(templates_path, 'task_assignment_iframe.html'), 'r', encoding='utf-8').read()
 
-    turk_template = open(MurkleServer.HTML_TEMPLATE, 'r', encoding='utf-8').read()
+    turk_template = open(ProtoTurkServer.HTML_TEMPLATE, 'r', encoding='utf-8').read()
     soup = BeautifulSoup(turk_template, 'html.parser')
     turk_template_has_submit_button = bool(soup.select('input[type=submit]'))
 
