@@ -1,3 +1,4 @@
+
 import csv
 import json
 import os.path
@@ -33,6 +34,10 @@ def index():
     template = open(os.path.join(templates_path, 'task-list.html'), 'r', encoding='utf-8').read()
     tpl = bottle.SimpleTemplate(template)
     return tpl.render(total_tasks=total_tasks)
+
+@bottle.route('/task/<ignore>.js.map')
+def map_js_files(ignore):
+    bottle.response.status = 404
 
 @bottle.route('/task/<task_id>')
 def task(task_id):
