@@ -16,7 +16,7 @@ form, the form parameters are logged to stdout.
 
 ProtoTurk does not save any data to database or disk.  If you need to
 run a Mechanical Turk-style server in your Local Environment, please
-take a loook at Turkle_.
+take a look at Turkle_.
 
 ProtoTurk can be installed using::
 
