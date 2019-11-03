@@ -22,5 +22,9 @@ ProtoTurk can be installed using::
 
     python setup.py install
 
+Or from PyPI::
+
+    pip install prototurk
+
 .. _Bottle: https://www.bottlepy.org
 .. _Turkle: https://github.com/hltcoe/turkle
