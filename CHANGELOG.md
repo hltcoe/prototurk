@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 ### Fixed
 - Corrected capitalization on project pages - 'ProtoTurk', not 'Prototurk'
+- JSON deserialization exception now caught and handled properly
 
 ## [0.2.1] - 2019-11-03
 ### Fixed

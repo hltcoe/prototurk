@@ -83,7 +83,7 @@ def task_submit(next_task_id):
             json_data = json.loads(bottle.request.forms[key])
             pretty_json = json.dumps(json_data, sort_keys=True, indent=2, separators=(',', ': '))
             print('  %s: %s' % (key, pretty_json))
-        except TypeError:
+        except (TypeError, json.decoder.JSONDecodeError):
             print('  %s: %s' % (key, bottle.request.forms[key]))
     bottle.redirect('/task/' + next_task_id)
 
