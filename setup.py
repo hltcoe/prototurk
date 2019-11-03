@@ -9,10 +9,10 @@ if __name__ == '__main__':
 
     setup(
         name='prototurk',
-        version='0.2.0',
+        version='0.2.1',
         description='Simple server for rapidly prototyping Mechanical Turk interfaces',
-        long_descripton=long_description,
-        long_descripton_content_type='text/x-rst',
+        long_description=long_description,
+        long_description_content_type='text/x-rst',
 
         packages=[
             'prototurk',
