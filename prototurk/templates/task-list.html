@@ -1,6 +1,8 @@
 <!doctype HTML>
 <html>
   <head>
+    <title>Prototurk</title>
+
     <script src="static/jquery-3.4.1.js"></script>
     <script>
     $(document).ready(function() {
@@ -17,9 +19,43 @@
   </head>
   <body>
     <div>
-      <h1>Task List</h1>
-      <ul id="task_list">
-      </ul>
+      <div>
+        <span style="font-size: 1.2em; font-weight: bold;">
+          <a href="https://github.com/hltcoe/prototurk">Prototurk</a>
+        </span>
+      </div>
+
+      <hr>
+
+      <div>
+        <h1>Task List</h1>
+        <ul id="task_list">
+        </ul>
+      </div>
+
+      <hr>
+
+      <div>
+        <table>
+          <tr>
+            <td style="text-align: right;">
+              HTML template:
+            </td>
+            <td>
+              <i>{{ html_template_filename }}</i>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: right;">
+              CSV file:
+            </td>
+            <td>
+              <i>{{ csv_filename }}</i>
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
+
   </body>
 </html>

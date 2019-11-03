@@ -33,7 +33,10 @@ def index():
     templates_path = os.path.join(os.path.dirname(__file__), 'templates')
     template = open(os.path.join(templates_path, 'task-list.html'), 'r', encoding='utf-8').read()
     tpl = bottle.SimpleTemplate(template)
-    return tpl.render(total_tasks=total_tasks)
+    return tpl.render(
+        csv_filename=ProtoTurkServer.CSV_FILE,
+        html_template_filename=ProtoTurkServer.HTML_TEMPLATE,
+        total_tasks=total_tasks)
 
 @bottle.route('/task/<ignore>.js.map')
 def map_js_files(ignore):
@@ -63,6 +66,7 @@ def task(task_id):
     tpl = bottle.SimpleTemplate(template)
     return tpl.render(
         form_submit_url='/task/' + next_task_id,
+        task_id=task_id,
         turk_template_has_submit_button=turk_template_has_submit_button,
         turk_template=turk_template)
 
