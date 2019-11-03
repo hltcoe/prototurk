@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+### Fixed
+- Corrected capitalization on project pages - 'ProtoTurk', not 'Prototurk'
+
 ## [0.2.1] - 2019-11-03
 ### Fixed
 - README should now be used for the package long description
