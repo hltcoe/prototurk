@@ -29,6 +29,8 @@ def index():
     csv_fh = open(ProtoTurkServer.CSV_FILE, 'r', encoding='utf-8')
     reader = csv.DictReader(csv_fh)
     total_tasks = len(list(reader))
+
+    bottle.response.add_header('Cache-Control', 'no-store')
     
     templates_path = os.path.join(os.path.dirname(__file__), 'templates')
     template = open(os.path.join(templates_path, 'task-list.html'), 'r', encoding='utf-8').read()
@@ -62,6 +64,8 @@ def task(task_id):
             r'${' + field + r'}',
             task_fields[field]
         )
+
+    bottle.response.add_header('Cache-Control', 'no-store')
 
     tpl = bottle.SimpleTemplate(template)
     return tpl.render(

@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased] 
 ### Added
 - Added CHANGELOG.md file
+- HTTP header 'Cache-Control' now set to 'no-store'
 - HTTP requests for `.js.map` files now receive 404 response
 - README now used for long description that PyPI displays as "Project description"
 - Task Assignment page now displays Task #
