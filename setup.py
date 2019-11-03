@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
     setup(
         name='prototurk',
-        version='0.1.2pre',
+        version='0.2.0',
         description='Simple server for rapidly prototyping Mechanical Turk interfaces',
         long_descripton=long_description,
         long_descripton_content_type='text/x-rst',
