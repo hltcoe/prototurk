@@ -28,6 +28,13 @@ if __name__ == '__main__':
         ],
 
         url='https://github.com/hltcoe/prototurk',
+        classifiers=[
+            'Framework :: Bottle',
+            'Intended Audience :: Developers',
+            'Intended Audience :: Science/Research',
+            'License :: OSI Approved :: BSD License',
+            'Programming Language :: Python :: 3 :: Only',
+        ],
         license='BSD',
         maintainer='Craig Harman',
         maintainer_email='craig@craigharman.net',
