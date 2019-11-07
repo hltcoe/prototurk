@@ -20,15 +20,15 @@
   </head>
   <body>
     <div class="container-fluid content">
-      <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand">
+      <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+        <span class="navbar-brand mr-auto">
           ProtoTurk - Task {{ task_id }}
         </span>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Task List</a>
-          </li>
-        </ul>
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/task/{{ previous_task_id }}">Previous Task</a>
+          <a class="nav-item nav-link" href="/task/{{ next_task_id }}">Next Task</a>
+          <a class="nav-item nav-link" href="/">Task List</a>
+        </div>
       </nav>
       <iframe src="/task/{{ task_id }}/iframe"
               style="top: 0; bottom: 0; left: 0; width: 100%; height: 100%; border: 0; box-sizing: inherit; display: block;">

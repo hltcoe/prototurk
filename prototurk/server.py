@@ -52,11 +52,19 @@ def map_js_files(ignore):
 
 @bottle.route('/task/<task_id>')
 def task(task_id):
-    template = get_template('task.html')
+    csv_fh = open(ProtoTurkServer.CSV_FILE, 'r', encoding='utf-8')
+    reader = csv.DictReader(csv_fh)
+    tasks = list(reader)
 
+    next_task_id = str((int(task_id) + 1) % len(tasks))
+    previous_task_id = str((int(task_id) - 1) % len(tasks))
+
+    template = get_template('task.html')
     tpl = bottle.SimpleTemplate(template)
     return tpl.render(
-        task_id=task_id)
+        task_id=task_id,
+        next_task_id=next_task_id,
+        previous_task_id=previous_task_id)
 
 
 @bottle.route('/task/<task_id>/iframe')
