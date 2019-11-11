@@ -2,14 +2,20 @@ from os import path
 from setuptools import setup
 
 
+
+
 if __name__ == '__main__':
+    version = {}
+    with open('prototurk/version.py') as fp:
+        exec(fp.read(), version)
+
     this_directory = path.abspath(path.dirname(__file__))
     with open(path.join(this_directory, 'README.rst'), encoding='utf-8') as f:
         long_description = f.read()
 
     setup(
         name='prototurk',
-        version='0.3.2pre',
+        version=version['__version__'],
         description='Simple server for rapidly prototyping Mechanical Turk interfaces',
         long_description=long_description,
         long_description_content_type='text/x-rst',

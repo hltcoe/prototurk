@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+### Added
+- Added `--version` flag, using technique #3 from 
+  https://packaging.python.org/guides/single-sourcing-package-version/
 
 ## [0.3.1] - 2019-11-06
 ### Added

@@ -4,6 +4,7 @@ import argparse
 import os.path
 
 import prototurk
+import prototurk.version
 
 
 def main():
@@ -12,6 +13,7 @@ def main():
     )
     parser.add_argument('--port', default=8080)
     parser.add_argument('--host', default='localhost')
+    parser.add_argument('--version', action='version', version=prototurk.version.__version__)
     parser.add_argument('html_file')
     parser.add_argument('csv_file')
     args = parser.parse_args()
