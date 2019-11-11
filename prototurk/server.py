@@ -1,4 +1,3 @@
-
 import csv
 import json
 import os.path
@@ -13,12 +12,14 @@ class ProtoTurkServer(object):
     # below.
     CSV_FH = None
     HTML_TEMPLATE = None
+    JS_MAP_PATH = None
 
-    def __init__(self, host, port, html_template, csv_file):
+    def __init__(self, host, port, html_template, csv_file, js_map_path):
         self.host = host
         self.port = port
         ProtoTurkServer.HTML_TEMPLATE = html_template
         ProtoTurkServer.CSV_FILE = csv_file
+        ProtoTurkServer.JS_MAP_PATH = js_map_path
 
     def serve(self):
         bottle.run(host=self.host, port=self.port)
@@ -45,8 +46,12 @@ def index():
         total_tasks=total_tasks)
 
 
-@bottle.route('/task/<ignore>.js.map')
-def map_js_files(ignore):
+@bottle.route('/task/<task_id>/<filename>.js.map')
+def map_js_files(task_id, filename):
+    if ProtoTurkServer.JS_MAP_PATH:
+        map_path = os.path.join(ProtoTurkServer.JS_MAP_PATH, filename+'.js.map')
+        if os.path.isfile(map_path):
+            return bottle.static_file(map_path, root='/')
     bottle.response.status = 404
 
 
