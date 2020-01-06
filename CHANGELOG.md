@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [0.3.3] - 2020-01-06
+### Changed
+- On Task Assignment page, browser focus is initially set to the
+  iframe, not the outer page.
+
 ## [0.3.2] - 2019-11-11
 ### Added
 - Added `--version` flag, using technique #3 from 
