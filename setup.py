@@ -25,7 +25,10 @@ if __name__ == '__main__':
         ],
         include_package_data=True,
 
-        scripts=['scripts/prototurk'],
+        scripts=[
+            'scripts/prototurk',
+            'scripts/prototurk-populate',
+        ],
         setup_requires=[],
         tests_require=[],
         install_requires=[
