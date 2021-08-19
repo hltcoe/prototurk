@@ -16,7 +16,7 @@ if __name__ == '__main__':
     setup(
         name='prototurk',
         version=version['__version__'],
-        description='Simple server for rapidly prototyping Mechanical Turk interfaces',
+        description='Simple server and script for rapidly prototyping Mechanical Turk interfaces',
         long_description=long_description,
         long_description_content_type='text/x-rst',
 
