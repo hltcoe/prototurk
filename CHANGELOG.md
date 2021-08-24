@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+### Fixed
+- Fixed CSS issue that caused two scroll bars to be displayed on Task
+  Asssignment page.  One scroll bar was inside the iframe, while the
+  other was out.
+
 ## [0.4.0] - 2021-08-19
 ### Added
 - Added `prototurk-populate` command line script.
