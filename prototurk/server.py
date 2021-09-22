@@ -6,6 +6,10 @@ import bottle
 from bs4 import BeautifulSoup
 
 
+# Set Maximum CSV size to 100MB
+csv.field_size_limit(104857600)
+
+
 class ProtoTurkServer(object):
     # DANGER WILL ROBINSON!  We are using class variables
     # to store values accessed by the Bottle route functions
